@@ -1,6 +1,7 @@
 package ndcroos.buildocc;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 import beans.Building;
@@ -13,18 +14,29 @@ import beans.Room;
  */
 public class Foo {
 
-	Set<Building> buildings;
+	private Set<Building> buildings;
+	
+	private int totalAmountRoomsAvailable;
+	
+	public Foo(){
+		this.totalAmountRoomsAvailable = 0;
+		this.calculateTotalAmountRoomsAvailable();
+	}
 	
 	public void amountRoomsAvailableInBuilding(Building building){
 		
 	}
 	
 	/**
+	 * Given a set of conditions, returns a corresponding set of rooms.
 	 * 
-	 * @return
+	 * @return a set of rooms, satisfying the given conditions.
 	 */
-	public Set<Room> getRoomsSatisfyingConditions(){
+	public Optional<Set<Room>> getRoomsSatisfyingConditions(){
 		Set<Room> setRooms = new HashSet<>();
+		
+		
+		
 		return setRooms;
 	}
 	
@@ -43,17 +55,19 @@ public class Foo {
 		return allRooms;
 	}
 	
-	private int getTotalAmountRoomsAvailable(){
-		int totalAmount = 0;
+	private void calculateTotalAmountRoomsAvailable(){
 		
 		buildings.forEach( 
 			b -> {
 				int bAmountAvailable = b.amountAvailableRooms();
-				totalAmount += bAmountAvailable;
+				this.totalAmountRoomsAvailable += bAmountAvailable;
 			}
 		);
-		
-		return totalAmount;
 	}
+	
+	private int getAmountTotalRoomsAvailable(){
+		return this.totalAmountRoomsAvailable;
+	}
+	
 	
 }
