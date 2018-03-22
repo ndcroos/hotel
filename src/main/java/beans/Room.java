@@ -6,6 +6,8 @@ public class Room {
 	
 	private int department;
 	
+	private boolean isAvailable;
+	
 	private boolean wifiAvailable;
 	
 	private boolean wheelchairAccessible;
@@ -15,6 +17,14 @@ public class Room {
 	private boolean doorClosable;
 	
 	private boolean doucheAvailable;
+
+	public boolean isAvailable() {
+		return isAvailable;
+	}
+
+	public void setAvailable(boolean isAvailable) {
+		this.isAvailable = isAvailable;
+	}
 
 	public int getId() {
 		return id;
